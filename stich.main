@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Horario - Temática Stitch</title>
+    <!-- Importar fuentes bonitas de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --stitch-blue: #023e8a;
+            --stitch-light-blue: #0077b6;
+            --stitch-ear-pink: #ffb5a7;
+            --bg-blue: #caf0f8;
+            --card-bg: rgba(255, 255, 255, 0.95);
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--bg-blue);
+            background-image: radial-gradient(#90e0ef 2px, transparent 2px);
+            background-size: 30px 30px;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-family: 'Fredoka One', cursive;
+            color: var(--stitch-blue);
+            font-size: 3em;
+            margin: 0;
+            text-shadow: 2px 2px 0px white, 4px 4px 0px var(--stitch-light-blue);
+            letter-spacing: 2px;
+        }
+
+        .schedule-container {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 15px;
+            overflow-x: auto;
+            padding-bottom: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .day-column {
+            flex: 1;
+            min-width: 220px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .day-header {
+            background-color: var(--stitch-blue);
+            color: white;
+            font-family: 'Fredoka One', cursive;
+            text-align: center;
+            padding: 15px;
+            border-radius: 15px;
+            font-size: 1.2em;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid var(--stitch-light-blue);
+        }
+
+        .class-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 15px;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-left: 6px solid var(--stitch-light-blue);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            overflow: hidden;
+        }
+
+        .class-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            border-left-color: var(--stitch-ear-pink);
+        }
+
+        .time {
+            background-color: var(--stitch-light-blue);
+            color: white;
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .subject {
+            font-size: 1.05em;
+            font-weight: 800;
+            color: var(--stitch-blue);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .room {
+            font-size: 0.9em;
+            color: #555;
+            font-weight: 600;
+            display: block;
+        }
+
+        .stitch-img {
+            position: absolute;
+            right: 5px;
+            bottom: 5px;
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+            opacity: 0.9;
+            z-index: 0;
+        }
+        
+        /* Asegurar que el texto esté por encima de la imagen si se superponen */
+        .class-card > div, .class-card > span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            height: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e0fbfc; 
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--stitch-light-blue); 
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--stitch-blue); 
+        }
+
+        @media (max-width: 768px) {
+            .schedule-container {
+                flex-direction: column;
+            }
+            .day-column {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mi Horario</h1>
+    </header>
+
+    <div class="schedule-container">
+        <!-- LUNES -->
+        <div class="day-column">
+            <div class="day-header">Lunes</div>
+            
+            <div class="class-card">
+                <span class="time">9:00 AM - 9:50 AM</span>
+                <span class="subject">BIOFISICA MEDICA</span>
+                <span class="room">Aula: A-9</span>
+                <img src="https://media.tenor.com/K1Pq7476qS8AAAAj/stitch-cute.gif" class="stitch-img" alt="Stitch Feliz">
+            </div>
+
+            <div class="class-card">
+                <span class="time">10:00 AM - 11:40 AM</span>
+                <span class="subject">INGLES 2</span>
+                <span class="room">Aula: A-6</span>
+                <img src="https://media.tenor.com/7hR_Hl4BvO0AAAAj/stitch-lilo-and-stitch.gif" class="stitch-img" alt="Stitch Saludando">
+            </div>
+
+            <div class="class-card">
+                <span class="time">1:00 PM - 2:40 PM</span>
+                <span class="subject">BIOLOGIA MOLECULAR DE LA CELULA</span>
+                <span class="room">Aula: A-7</span>
+                <img src="https://media.tenor.com/a4K_H40bIfkAAAAj/stitch-lilo-and-stitch.gif" class="stitch-img" alt="Stitch Bailando">
+            </div>
+        </div>
+
+        <!-- MARTES -->
+        <div class="day-column">
+            <div class="day-header">Martes</div>
+            
+            <div class="class-card">
+                <span class="time">8:00 AM - 9:40 AM</span>
+                <span class="subject">QUIMICA ORGANICA</span>
+                <span class="room">Aula: A-1</span>
+                <img src="https://media.tenor.com/B94U7H_hZ_4AAAAj/stitch-cute.gif" class="stitch-img" alt="Stitch Sonriendo">
+            </div>
+
+            <div class="class-card">
+                <span class="time">2:00 PM - 3:40 PM</span>
+                <span class="subject">BIOFISICA MEDICA</span>
+                <span class="room">Aula: A-7</span>
+                <img src="https://media.tenor.com/8QdY2kH6D4kAAAAj/stitch.gif" class="stitch-img" alt="Stitch Amor">
+            </div>
+        </div>
+
+        <!-- MIÉRCOLES -->
+        <div class="day-column">
+            <div class="day-header">Miércoles</div>
+            
+            <div class="class-card">
+                <span class="time">3:00 PM - 4:40 PM</span>
+                <span class="subject">BIOLOGIA MOLECULAR DE LA CELULA</span>
+                <span class="room">Aula: A-7</span>
+                <img src="https://media.tenor.com/K1Pq7476qS8AAAAj/stitch-cute.gif" class="stitch-img" alt="Stitch Feliz">
+            </div>
+        </div>
+
+        <!-- JUEVES -->
+        <div class="day-column">
+            <div class="day-header">Jueves</div>
+            
+            <div class="class-card">
+                <span class="time">7:00 AM - 7:50 AM</span>
+                <span class="subject">QUIMICA ORGANICA</span>
+                <span class="room">Aula: 4-6</span>
+                <img src="https://media.tenor.com/7hR_Hl4BvO0AAAAj/stitch-lilo-and-stitch.gif" class="stitch-img" alt="Stitch Saludando">
+            </div>
+
+            <div class="class-card">
+                <span class="time">11:00 AM - 11:50 AM</span>
+                <span class="subject">INGLES 2</span>
+                <span class="room">Aula: A-1</span>
+                <img src="https://media.tenor.com/a4K_H40bIfkAAAAj/stitch-lilo-and-stitch.gif" class="stitch-img" alt="Stitch Bailando">
+            </div>
+
+            <div class="class-card">
+                <span class="time">2:00 PM - 3:40 PM</span>
+                <span class="subject">PSICOLOGIA GENERAL</span>
+                <span class="room">Aula: A-8</span>
+                <img src="https://media.tenor.com/8QdY2kH6D4kAAAAj/stitch.gif" class="stitch-img" alt="Stitch Amor">
+            </div>
+        </div>
+
+        <!-- VIERNES -->
+        <div class="day-column">
+            <div class="day-header">Viernes</div>
+            
+            <div class="class-card">
+                <span class="time">7:00 AM - 8:40 AM</span>
+                <span class="subject">BIOFISICA MEDICA</span>
+                <span class="room">Aula: A-2</span>
+                <img src="https://media.tenor.com/B94U7H_hZ_4AAAAj/stitch-cute.gif" class="stitch-img" alt="Stitch Sonriendo">
+            </div>
+
+            <div class="class-card">
+                <span class="time">12:00 PM - 1:40 PM</span>
+                <span class="subject">INGLES 2</span>
+                <span class="room">Aula: A-6</span>
+                <img src="https://media.tenor.com/K1Pq7476qS8AAAAj/stitch-cute.gif" class="stitch-img" alt="Stitch Feliz">
+            </div>
+
+            <div class="class-card">
+                <span class="time">2:00 PM - 3:40 PM</span>
+                <span class="subject">PSICOLOGIA GENERAL</span>
+                <span class="room">Aula: A-8</span>
+                <img src="https://media.tenor.com/7hR_Hl4BvO0AAAAj/stitch-lilo-and-stitch.gif" class="stitch-img" alt="Stitch Saludando">
+            </div>
+        </div>
+        
+    </div>
+
+</body>
+</html>
